@@ -1,0 +1,122 @@
+### 게시판 허가
+PUT http://localhost:1208/admin/allow-board?boardCode=1
+Authorization: Bearer eyJkYXRlIjoxNzA2OTM5OTU1NjI0LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLqsJXtlbTrprAiLCJzdWIiOiJ1c2VyMDciLCJlbXBsb3llZUVtYWlsIjoia2FuZ2hhZXJpbkBnbWFpbC5jb20iLCJleHAiOjE3MDY5NDM1NTUsImVtcGxveWVlUm9sZSI6W3siZW1wbG95ZWVObyI6MCwiYXV0aG9yaXR5Q29kZSI6MiwiYXV0aG9yaXR5Ijp7ImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eU5hbWUiOiJST0xFX0FETUlOIiwiYXV0aG9yaXR5RGVzYyI6Iuq0gOumrOyekCJ9fV19.Z2Z--eU0rkUl1WfXaT7s9EJ-VymQcFli8gpSE-yBVmY
+
+### 허가 게시판 조회
+GET http://localhost:1208/admin/show-need-to-allow-board
+Authorization: Bearer eyJkYXRlIjoxNzA2OTQ1NjAzNTcxLCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLqsJXtlbTrprAiLCJzdWIiOiJ1c2VyMDciLCJlbXBsb3llZUVtYWlsIjoia2FuZ2hhZXJpbkBnbWFpbC5jb20iLCJleHAiOjE3MDY5NDkyMDMsImVtcGxveWVlUm9sZSI6W3siZW1wbG95ZWVObyI6MCwiYXV0aG9yaXR5Q29kZSI6MiwiYXV0aG9yaXR5Ijp7ImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eU5hbWUiOiJST0xFX0FETUlOIiwiYXV0aG9yaXR5RGVzYyI6Iuq0gOumrOyekCJ9fV19.22ONb6uGwPFQFInip8H3FcUbZZrAnBd0f9arehRIuvA
+
+
+
+
+### 테스트
+GET http://localhost:1208/admin/user-info
+Content-Type: application/json
+Authorization: Bearer eyJkYXRlIjoxNzA4NzU3NTE5MDUyLCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLqsJXtlbTrprAiLCJzdWIiOiJ1c2VyMDciLCJlbXBEZXB0TmFtZSI6IklU7Jq07JiB7YyAIiwiZW1wQ29kZSI6MTIsImVtcGxveWVlRW1haWwiOiJraW1taW42OTlAZ21haWwuY29tIiwiZW1wR3JvdXBDb2RlIjozLCJlbXBsb3llZUlkIjoidXNlcjA3IiwiZXhwIjoxNzA4ODAwNzE5LCJlbXBsb3llZVJvbGUiOlt7ImVtcGxveWVlQ29kZSI6MTIsImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eSI6eyJhdXRob3JpdHlDb2RlIjoyLCJhdXRob3JpdHlOYW1lIjoiUk9MRV9BRE1JTiJ9fV19.eDbd9ev_H026TLPaGm0yyIY2CPUcm_KrtdaShOfZGDc
+
+
+{
+  "employeeCode": 3
+}
+
+### 유저 정보 업데이트
+PUT http://localhost:1208/admin/user-update
+Content-Type: application/json
+
+{
+  "employeeCode": 1,
+  "employeeDepartment": {
+    "departmentCode": 8,
+    "parentDepartmentCode": 3,
+    "departmentName": "IT운영팀"
+  },
+  "employeeJob": {
+    "jobCode": 5,
+    "jobName": "팀장"
+  },
+  "educations": [
+    {
+      "employeeCode": 1,
+      "educationGrade": 4.5,
+      "educationAdmissionDate": "2018-03-01",
+      "educationGraduateDate": "2023-07-01",
+      "educationMajor": "소프트웨어공학",
+      "educationName": "낙성대학교"
+    }
+  ],
+  "careers": [
+    {
+      "careerCode": 1,
+      "employeeCode": 1,
+      "careerStartDate": "2023-07-01",
+      "careerEndDate": "2024-01-05",
+      "careerCompanyName": "애플",
+      "careerPosition": "팀장",
+      "careerBusinessInformation": "맥 개발"
+    }
+  ],
+  "employeeBirthDate": "1999-08-17",
+  "employeeJoinDate": "2024-01-29 14:44:50",
+  "employeeAddress": "사우로51 ",
+  "employeeId": "wjdwltjq8482",
+  "employeeName": "정지섭",
+  "employeePassword": "1234",
+  "employeePhone": "010-5790-8482",
+  "employeeResidentNumber": "990817-1211111",
+  "employeeRetirementDate": null,
+  "employeeAssignedCode": "202404001",
+  "employeeOnLeaveCount": "12",
+  "employeeExternalEmail": "wjdwltjq8482@naver.com",
+  "employeeRole": "ROLE_USER"
+}
+
+### 유저 추가
+POST http://localhost:1208/admin/create-user
+Content-Type: application/json
+Authorization: Bearer eyJkYXRlIjoxNzA4NzU3NTE5MDUyLCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLqsJXtlbTrprAiLCJzdWIiOiJ1c2VyMDciLCJlbXBEZXB0TmFtZSI6IklU7Jq07JiB7YyAIiwiZW1wQ29kZSI6MTIsImVtcGxveWVlRW1haWwiOiJraW1taW42OTlAZ21haWwuY29tIiwiZW1wR3JvdXBDb2RlIjozLCJlbXBsb3llZUlkIjoidXNlcjA3IiwiZXhwIjoxNzA4ODAwNzE5LCJlbXBsb3llZVJvbGUiOlt7ImVtcGxveWVlQ29kZSI6MTIsImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eSI6eyJhdXRob3JpdHlDb2RlIjoyLCJhdXRob3JpdHlOYW1lIjoiUk9MRV9BRE1JTiJ9fV19.eDbd9ev_H026TLPaGm0yyIY2CPUcm_KrtdaShOfZGDc
+
+
+{
+  "employee": {
+    "employeeDepartment": {
+      "departmentCode": 8,
+      "parentDepartmentCode": 2,
+      "departmentName": "IT운영팀"
+    },
+    "employeeJob": {
+      "jobCode": 5,
+      "jobName": "팀장"
+    },
+    "employeeBirthDate": "1999-08-17",
+    "employeeJoinDate": "2024-01-29 14:44:50",
+    "employeeAddress": "사우로51 ",
+    "employeeId": "insert123",
+    "employeeName": "테스트",
+    "employeePassword": "1111",
+    "employeePhone": "010-5790-8482",
+    "employeeResidentNumber": "990817-1311111",
+    "employeeRetirementDate": null,
+    "employeeAssignedCode": "202404001",
+    "employeeOnLeaveCount": "12",
+    "employeeExternalEmail": "wjdwltjq8482@naver.com",
+    "employeeRole": "ROLE_USER"
+  },
+  "education": {
+    "employeeCode": 1,
+    "educationGrade": 4.5,
+    "educationAdmissionDate": "2018-03-01",
+    "educationGraduateDate": "2023-07-01",
+    "educationMajor": "소프트웨어공학",
+    "educationName": "낙성대학교"
+  },
+  "career": {
+    "careerCode": 1,
+    "employeeCode": 1,
+    "careerStartDate": "2023-07-01",
+    "careerEndDate": "2024-01-05",
+    "careerCompanyName": "애플",
+    "careerPosition": "팀장",
+    "careerBusinessInformation": "맥 개발"
+  }
+}
+

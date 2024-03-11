@@ -1,0 +1,60 @@
+### 받은 메일 조회
+GET http://localhost:1208/mail/find-receive-mail?condition=send
+Authorization: Bearer eyJkYXRlIjoxNzA3MTI2NjYxODEyLCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLsoJXsp4DshK0iLCJzdWIiOiJyb290IiwiZW1wbG95ZWVFbWFpbCI6IndqZHdsdGpxODQ4MkBnbWFpbC5jb20iLCJleHAiOjE3MDcxMzAyNjEsImVtcGxveWVlUm9sZSI6W3siZW1wbG95ZWVObyI6MCwiYXV0aG9yaXR5Q29kZSI6MiwiYXV0aG9yaXR5Ijp7ImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eU5hbWUiOiJST0xFX0FETUlOIiwiYXV0aG9yaXR5RGVzYyI6Iuq0gOumrOyekCJ9fV19.WRYnoDEIcOsXn5u9NqJwGMkUvxg5TiQkoIPE14KCoIU
+
+
+### 보낸 메일 조회
+GET http://localhost:1208/mail/find-send-mail?condition=send
+Authorization: Bearer eyJkYXRlIjoxNzA3MTIyOTY1NTM3LCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLsoJXsp4DshK0iLCJzdWIiOiJyb290IiwiZW1wbG95ZWVFbWFpbCI6IndqZHdsdGpxODQ4MkBnbWFpbC5jb20iLCJleHAiOjE3MDcxMjY1NjUsImVtcGxveWVlUm9sZSI6W3siZW1wbG95ZWVObyI6MCwiYXV0aG9yaXR5Q29kZSI6MiwiYXV0aG9yaXR5Ijp7ImF1dGhvcml0eUNvZGUiOjIsImF1dGhvcml0eU5hbWUiOiJST0xFX0FETUlOIiwiYXV0aG9yaXR5RGVzYyI6Iuq0gOumrOyekCJ9fV19.MNHwXtvoIPeFUJCHs07idRu5zM6OUjYQhEA-tXnl0Yg
+
+### 안읽은 메일 개수 조회
+GET http://localhost:1208/unread-email-counts
+Authorization: Bearer eyJkYXRlIjoxNzA3ODcxNTgyNzYxLCJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJlbXBsb3llZU5hbWUiOiLsoJXsp4DshK0iLCJzdWIiOiJyb290IiwiZW1wbG95ZWVFbWFpbCI6IndqZHdsdGpxODQ4MkBnbWFpbC5jb20iLCJleHAiOjE3MDc5MDc1ODIsImVtcGxveWVlUm9sZSI6W3siZW1wbG95ZWVObyI6MCwiYXV0aG9yaXR5Q29kZSI6MSwiYXV0aG9yaXR5Ijp7ImF1dGhvcml0eUNvZGUiOjEsImF1dGhvcml0eU5hbWUiOiJST0xFX1VTRVIiLCJhdXRob3JpdHlEZXNjIjoi7J2867CY7IKs7JuQIn19XX0.IRrBUG_SAkkbDeGKha-mysRuAMDpVa8SoNAinPaJ_OU
+
+### 이메일 보내기
+POST http://localhost:1208/mail/send-mail?status=temporary
+Content-Type: application/json
+
+{
+  "emailTitle": "제목",
+  "emailContent": "<span>나는 내용이다<span>",
+  "emailReceiver": {
+
+    "employeeId": "inji2349@gmail.com"
+  }
+}
+
+### 이메일 여러 개 상태 변경하기
+PUT http://localhost:1208/mail/update-mail-status?status=temporary
+Content-Type: application/json
+
+[
+  {
+    "emailCode": 31
+  }
+]
+
+### 이메일 여러 개 삭제 하기
+DELETE http://localhost:1208/mail/delete-mail
+Content-Type: application/json
+
+[
+  {
+    "emailCode": 50
+  },
+  {
+    "emailCode": 40
+  }
+]
+
+### 임시저장 이메일 불러오기
+GET http://localhost:1208/mail/temporary
+
+### 메일 예약하기
+POST http://localhost:1208/update-email-schedule
+Content-Type: application/json
+
+{
+  "date": "2024-01-30",
+  "time": "15:45"
+}
